@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Dashboard from "./Components/Dashboard";
+import Fdashboard from "./Components/Fdashboard";
+import Login from "./Components/Login";
+import PrivateRoute from "./Components/PrivateRoute";
+import Signup from "./Components/Signup";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    < >
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<PrivateRoute>  <Fdashboard /> </PrivateRoute>} />
+          <Route path="/user" element={<PrivateRoute>  <Dashboard name='aksh' /> </PrivateRoute>} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<h1> Error: 404 Not Found </h1>} />
+        </Routes>
+      </BrowserRouter>
+
+    </>
   );
 }
 
