@@ -61,7 +61,7 @@ const Login = () => {
                 <form onSubmit={handleSubmit}>
                     <h1 className="text-center"> Sign Up </h1>
                     <div className="mb-3">
-                        <label htmlFor="email" className="form-label">Email address</label>
+                        <label htmlFor="email" classNa1me="form-label">Email address</label>
                         <input type="email" className="form-control" id="email" ref={emailRef} aria-describedby="emailHelp" />
 
                     </div>
