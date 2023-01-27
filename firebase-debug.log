@@ -48,3 +48,24 @@ Before we get started, keep in mind:
 [info] 
 [info] +  Wrote public/404.html 
 [debug] [2023-01-27T12:20:47.382Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2023-01-27T12:20:47.715Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2023-01-27T12:20:47.715Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"9.16.0","browserURL":"https://www.gstatic.com/firebasejs/9.16.0/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/9.16.0/firebase.tgz"},"live":{"version":"9.16","browserURL":"https://www.gstatic.com/firebasejs/live/9.16/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/9.16/firebase.tgz"},"components":{"analytics":"https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/9.16.0/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/9.16.0/firebase-auth.js","auth/cordova":"https://www.gstatic.com/firebasejs/9.16.0/firebase-auth/cordova.js","auth/react-native":"https://www.gstatic.com/firebasejs/9.16.0/firebase-auth/react-native.js","functions":"https://www.gstatic.com/firebasejs/9.16.0/firebase-functions.js","firestore":"https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore.js","firestore/lite":"https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore/lite.js","installations":"https://www.gstatic.com/firebasejs/9.16.0/firebase-installations.js","storage":"https://www.gstatic.com/firebasejs/9.16.0/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/9.16.0/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/9.16.0/firebase-remote-config.js","messaging":"https://www.gstatic.com/firebasejs/9.16.0/firebase-messaging.js","messaging/sw":"https://www.gstatic.com/firebasejs/9.16.0/firebase-messaging/sw.js","database":"https://www.gstatic.com/firebasejs/9.16.0/firebase-database.js","firestore.memory":"https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore.memory.js"}}
+[info] i  Skipping write of public/index.html 
+[info] 
+[info] i  Detected a .git folder at C:\firebase\practise-1\p1 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=894970128&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2023-01-27T12:21:28.942Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2023-01-27T12:21:28.943Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2023-01-27T12:21:29.446Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2023-01-27T12:21:29.446Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2023-01-27T12:21:29.464Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2023-01-27T12:21:30.019Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2023-01-27T12:21:30.020Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"AKSHDESAI1","id":68705063,"node_id":"MDQ6VXNlcjY4NzA1MDYz","avatar_url":"https://avatars.githubusercontent.com/u/68705063?v=4","gravatar_id":"","url":"https://api.github.com/users/AKSHDESAI1","html_url":"https://github.com/AKSHDESAI1","followers_url":"https://api.github.com/users/AKSHDESAI1/followers","following_url":"https://api.github.com/users/AKSHDESAI1/following{/other_user}","gists_url":"https://api.github.com/users/AKSHDESAI1/gists{/gist_id}","starred_url":"https://api.github.com/users/AKSHDESAI1/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/AKSHDESAI1/subscriptions","organizations_url":"https://api.github.com/users/AKSHDESAI1/orgs","repos_url":"https://api.github.com/users/AKSHDESAI1/repos","events_url":"https://api.github.com/users/AKSHDESAI1/events{/privacy}","received_events_url":"https://api.github.com/users/AKSHDESAI1/received_events","type":"User","site_admin":false,"name":"AKSH DESAI","company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"public_repos":179,"public_gists":0,"followers":1,"following":5,"created_at":"2020-07-23T17:00:45Z","updated_at":"2023-01-18T04:09:30Z","private_gists":0,"total_private_repos":3,"owned_private_repos":3,"disk_usage":159279,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] +  Success! Logged into GitHub as AKSHDESAI1 
+[info] 
