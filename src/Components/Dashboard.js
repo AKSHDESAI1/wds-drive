@@ -42,7 +42,7 @@ const Dashboard = (props) => {
       <Link className='btn btn-primary w-100' to='update-profile'>Update Profile</Link>
       <button className="btn-primary" onClick={handleClick}>Logout</button>
 
-      <Button onClick={handleClick_SnackBar} hidden>Show snackbar</Button>
+      <Button onClick={handleClick_SnackBar} >Show snackbar</Button>
       {/* <Button onClick={handleClickVariant('success')}>Show success snackbar</Button> */}
 
     </>
