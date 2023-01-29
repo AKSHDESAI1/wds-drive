@@ -38,8 +38,13 @@ const Dashboard = (props) => {
       <button className="btn-primary" onClick={handleClick}>Logout</button>
 
       <Button onClick={() => {
-        enqueueSnackbar('meow', 'success');
-      }} >Show snackbar</Button>
+        enqueueSnackbar('Aksh', { variant: "info" })
+        enqueueSnackbar('Bhargavi', { variant: "warning" })
+        enqueueSnackbar('Krutik', { variant: "success" })
+        enqueueSnackbar('Ayush ', { variant: "warning" })
+        enqueueSnackbar('Bhargav', { variant: "info" })
+      }
+      } >Show snackbar</Button>
       {/* <Button onClick={handleClickVariant('success')}>Show success snackbar</Button> */}
 
     </>
