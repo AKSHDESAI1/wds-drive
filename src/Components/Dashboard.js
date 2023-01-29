@@ -3,27 +3,22 @@ import { useAuth } from '../Context/AuthContext';
 import { Link } from 'react-router-dom';
 
 import Button from '@mui/material/Button';
-import { useSnackbar } from 'notistack';
+import SnackbarMui from './SnackbarMui';
 
 const Dashboard = (props) => {
   const { currentUser, signout } = useAuth();
 
   // Mui Snackbar begins 
-  const { enqueueSnackbar } = useSnackbar();
-
-  const handleClick_SnackBar = () => {
-    enqueueSnackbar('I love snacks.');
-  };
-
+  const { enqueueSnackbar } = SnackbarMui();
   // Mui Snackbar ends
 
   async function handleClick() {
     try {
+      await signout();
       enqueueSnackbar('LogOut Successfully', { variant: 'success' });
-      setTimeout(async () => {
+      // setTimeout(async () => {
 
-        await signout();
-      }, 1000);
+      // }, 1000);
       // navigate('/login')
     } catch (error) {
       console.log('error', error)
@@ -42,7 +37,9 @@ const Dashboard = (props) => {
       <Link className='btn btn-primary w-100' to='update-profile'>Update Profile</Link>
       <button className="btn-primary" onClick={handleClick}>Logout</button>
 
-      <Button onClick={handleClick_SnackBar} hidden>Show snackbar</Button>
+      <Button onClick={() => {
+        enqueueSnackbar('meow', 'success');
+      }} >Show snackbar</Button>
       {/* <Button onClick={handleClickVariant('success')}>Show success snackbar</Button> */}
 
     </>

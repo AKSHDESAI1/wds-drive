@@ -3,6 +3,11 @@ import { Button as MuiButton } from '@mui/material';
 import { useState, useRef } from 'react';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
+import { database } from '../config/firebase-config';
+import { addDoc, onSnapshot } from "firebase/firestore";
+import { useEffect } from 'react';
+import SnackbarMui from './SnackbarMui';
+
 
 const Addfolderbutton = () => {
   // Modal 
@@ -11,20 +16,41 @@ const Addfolderbutton = () => {
   const handleShow = () => setShow(true);
   // Modal End 
 
+  const { enqueueSnackbar } = SnackbarMui();
+
   const Submitbtn = useRef(null);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    const unsub = onSnapshot(database.folders, (snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === "added") {
+          console.log("added: ", change.doc.data());
+        }
+        if (change.type === "modified") {
+          console.log("Modified city: ", change.doc.data());
+        }
+        if (change.type === "removed") {
+          console.log("Removed city: ", change.doc.data());
+        }
+      });
+    });
+    return (() => {
+      unsub();
+    })
+  }, [])
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setShow(false);
     let form = new FormData(e.currentTarget);
     let data = form.get('FolderName');
-    const updatedForm = Array.from(data).filter((e, index) => {
-      console.log(index, e, data[index])
-      // eslint-disable-next-line 
-      return data[index] != data[index + 1] != ' ';
-    })
-
-    if (updatedForm.length !== 0) {
-      setShow(false);
+    try {
+      await addDoc(database.folders, {
+        name: data
+      });
+      enqueueSnackbar('Folder Added Successfully', { variant: "success" });
+    } catch (error) {
+      enqueueSnackbar(`${JSON.stringify(error.message)}`, { variant: "error" });
     }
   };
 

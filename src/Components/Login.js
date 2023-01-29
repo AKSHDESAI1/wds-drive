@@ -3,9 +3,7 @@ import { useAuth } from '../Context/AuthContext';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-
-import { useSnackbar } from 'notistack';
-import { SnackbarProvider } from 'notistack'
+import SnackbarMui from './SnackbarMui';
 
 const Login = () => {
     const emailRef = useRef();
@@ -47,14 +45,13 @@ const Login = () => {
     // Backdrop Ends 
 
     // Mui Snackbar begins 
-    const { enqueueSnackbar } = useSnackbar();
+    const { enqueueSnackbar } = SnackbarMui();
 
     //    Mui Snackbar ends 
 
     return (
         <div className="row d-flex justify-content-center vh-100 align-items-center">
             <div className="col-md-6  mx-auto bg-dark text-light">
-                <SnackbarProvider />
                 {currentUser && currentUser.email}
                 {error === '' ? null : <h6 className="alert alert-danger" hidden> {error}  </h6>}
 
