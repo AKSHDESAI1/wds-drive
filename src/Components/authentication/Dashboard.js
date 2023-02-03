@@ -1,9 +1,9 @@
 import React from 'react'
-import { useAuth } from '../Context/AuthContext';
+import { useAuth } from '../../Context/AuthContext';
 import { Link } from 'react-router-dom';
 
 import Button from '@mui/material/Button';
-import SnackbarMui from './SnackbarMui';
+import SnackbarMui from '../SnackbarMui';
 
 const Dashboard = (props) => {
   const { currentUser, signout } = useAuth();

@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react'
-import { useAuth } from '../Context/AuthContext';
+import { useAuth } from '../../Context/AuthContext';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-import SnackbarMui from './SnackbarMui';
+import SnackbarMui from '../SnackbarMui';
 
 const Login = () => {
     const emailRef = useRef();
@@ -44,9 +44,9 @@ const Login = () => {
     };
     // Backdrop Ends 
 
+
     // Mui Snackbar begins 
     const { enqueueSnackbar } = SnackbarMui();
-
     //    Mui Snackbar ends 
 
     return (

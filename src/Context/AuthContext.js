@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from '../config/firebase-config';
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 const AuthContext = React.createContext();
 
@@ -43,7 +43,7 @@ const AuthProvider = ({ children }) => {
     };
     return (
         <AuthContext.Provider value={value}>
-            {!loading ? children : <h1> Loading... </h1>}
+            {!loading ? children : <h1 className='d-flex justify-content-center'>   <CircularProgress />  <CircularProgress color="secondary" />  <CircularProgress color="success" />  <CircularProgress color="warning" />  <CircularProgress color="error" />  <CircularProgress color="info" /> Loading... </h1>}
         </AuthContext.Provider>
     )
 };

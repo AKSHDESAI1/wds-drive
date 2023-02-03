@@ -9,12 +9,12 @@ import { SnackbarProvider } from 'notistack';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AuthProvider>
-    <CssBaseline />
-    <SnackbarProvider maxSnack={10}>
-      <App />
-    </SnackbarProvider>
-  </AuthProvider>
+    <AuthProvider>
+      <CssBaseline />
+      <SnackbarProvider maxSnack={100}>
+        <App />
+      </SnackbarProvider>
+    </AuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

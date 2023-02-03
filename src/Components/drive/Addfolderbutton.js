@@ -3,13 +3,16 @@ import { Button as MuiButton } from '@mui/material';
 import { useState, useRef } from 'react';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import { database } from '../config/firebase-config';
-import { addDoc, onSnapshot } from "firebase/firestore";
-import { useEffect } from 'react';
-import SnackbarMui from './SnackbarMui';
+import { database } from '../../config/firebase-config';
+import { addDoc, serverTimestamp } from "firebase/firestore";
+import SnackbarMui from '../SnackbarMui';
+import { useAuth } from '../../Context/AuthContext';
 
 
-const Addfolderbutton = () => {
+const Addfolderbutton = ({ currentFolder }) => {
+
+  const { currentUser } = useAuth();
+
   // Modal 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -20,24 +23,24 @@ const Addfolderbutton = () => {
 
   const Submitbtn = useRef(null);
 
-  useEffect(() => {
-    const unsub = onSnapshot(database.folders, (snapshot) => {
-      snapshot.docChanges().forEach((change) => {
-        if (change.type === "added") {
-          console.log("added: ", change.doc.data());
-        }
-        if (change.type === "modified") {
-          console.log("Modified city: ", change.doc.data());
-        }
-        if (change.type === "removed") {
-          console.log("Removed city: ", change.doc.data());
-        }
-      });
-    });
-    return (() => {
-      unsub();
-    })
-  }, [])
+  // useEffect(() => {
+  //   const unsub = onSnapshot(database.folders, (snapshot) => {
+  //     snapshot.docChanges().forEach((change) => {
+  //       if (change.type === "added") {
+  //         console.log("added: ", change.doc.data(), change.doc.id);
+  //       }
+  //       if (change.type === "modified") {
+  //         console.log("Modified city: ", change.doc.data(), change.doc.id);
+  //       }
+  //       if (change.type === "removed") {
+  //         console.log("Removed city: ", change.doc.data(), change.doc.id);
+  //       }
+  //     });
+  //   });
+  //   return (() => {
+  //     unsub();
+  //   })
+  // }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,10 +49,15 @@ const Addfolderbutton = () => {
     let data = form.get('FolderName');
     try {
       await addDoc(database.folders, {
-        name: data
+        name: data,
+        userId: currentUser.uid,
+        parentId: currentFolder.id,
+        createdAt: serverTimestamp()
       });
+      console.log('currentUser', currentUser);
       enqueueSnackbar('Folder Added Successfully', { variant: "success" });
     } catch (error) {
+
       enqueueSnackbar(`${JSON.stringify(error.message)}`, { variant: "error" });
     }
   };

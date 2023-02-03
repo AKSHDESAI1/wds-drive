@@ -1,8 +1,8 @@
-import Dashboard from "./Components/Dashboard";
-import Fdashboard from "./Components/Fdashboard";
-import Login from "./Components/Login";
-import PrivateRoute from "./Components/PrivateRoute";
-import Signup from "./Components/Signup";
+import Dashboard from "./Components/authentication/Dashboard";
+import Fdashboard from "./Components/drive/Fdashboard";
+import Login from "./Components/authentication/Login";
+import PrivateRoute from "./Components/authentication/PrivateRoute";
+import Signup from "./Components/authentication/Signup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 

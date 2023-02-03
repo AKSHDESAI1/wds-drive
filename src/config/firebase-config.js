@@ -22,6 +22,9 @@ const auth = getAuth(app);
 export const database = {
     folders: collection(db, "folders"),
     files: collection(db, "files"),
+    formattedDoc: (doc) => {
+        return {...doc.data(), id: doc.id}
+    }
 }
 
 export default db;
