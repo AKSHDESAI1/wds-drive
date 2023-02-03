@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { auth } from '../../config/firebase-config';
-import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 const Signup = () => {
 
@@ -39,7 +39,7 @@ const Signup = () => {
     e.preventDefault();
     window.confirmationResult.confirm(sub).then((result) => {
       // User signed in successfully.
-      const user = result.user;
+      // const user = result.user;
       // ...
       alert('successfully done');
     }).catch((error) => {
@@ -52,11 +52,11 @@ const Signup = () => {
   const [phone, setPhone] = useState('');
   const [sub, setSub] = useState('');
 
-  const handleSubmit = ((e) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    console.log(form.get('phone'));
-  })
+  // const handleSubmit = ((e) => {
+  //   e.preventDefault();
+  //   const form = new FormData(e.currentTarget);
+  //   console.log(form.get('phone'));
+  // })
 
   return (
     <>
