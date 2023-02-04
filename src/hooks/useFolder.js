@@ -6,7 +6,8 @@ import { useAuth } from '../Context/AuthContext';
 
 const ACTIONS = {
     SELECT_FOLDER: 'select-folder',
-    UPDATE_FOLDER: 'update-folder'
+    UPDATE_FOLDER: 'update-folder',
+    SET_CHILD_FOLDERS: 'set-child-folders'
 }
 
 const ROOT_FOLDER = {
@@ -31,6 +32,11 @@ function reducer(state, action) {
                 folder: action.payload.folder
             }
 
+        case ACTIONS.SET_CHILD_FOLDERS:
+            return {
+                ...state,
+                childFolders: action.payload.childFolders
+            }
         default:
             return state
     }
@@ -78,9 +84,10 @@ const useFolder = (folderId = null, folder = null) => {
     useEffect(() => {
         const q1 = query(database.folders, where("parentId", "==", folderId), where("userId", "==", currentUser.uid, orderBy('createdAt')));
 
-        onSnapshot(q1, (doc) => {
-            doc.docs.forEach((data) => {
-                console.log('aksh', data.data());
+        return onSnapshot(q1, (doc) => {
+            dispatch({
+                type: ACTIONS.SET_CHILD_FOLDERS,
+                payload: { childFolders: doc.docs.map(database.formattedDoc) }
             })
         })
     }, [folderId, currentUser]);

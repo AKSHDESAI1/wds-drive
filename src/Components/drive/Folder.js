@@ -1,8 +1,11 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 
-const Folder = ( {folder} ) => {
+const Folder = ({ folder }) => {
   return (
-    <div> {folder.name} </div>
+    <Button as="a" variant="primary">
+      {folder.name}
+    </Button>
   )
 }
 
