@@ -12,7 +12,7 @@ const FolderBreadCrumbs = ({ currentFolder }) => {
     return (
         <Breadcrumb className='flex-grow-1'>
             {path.map((item) => {
-                return <Breadcrumb.Item key={item.id} className='text-truncate d-inline-block' style={{ maxWidth: "200px" }}> <Link to={item.name === 'Root' ? "/" : `/folder/${item.id}`}> {item.name} </Link> </Breadcrumb.Item>
+                return <Breadcrumb.Item key={item.id} className='text-truncate d-inline-block' style={{ maxWidth: "200px" }} linkAs={Link} linkProps={{ to: item.name === 'Root' ? "/" : `/folder/${item.id}` }}> {item.name}  </Breadcrumb.Item>
             })}
             {
                 currentFolder && (
