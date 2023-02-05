@@ -129,18 +129,13 @@ function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
 
-    const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
-
-    const { login, currentUser } = useAuth();
+    const { login } = useAuth();
     const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
         setOpen(true);
         try {
-            setLoading(true);
-            setError('');
             console.log(emailRef.current.value, passwordRef.current.value)
             await login(emailRef.current.value, passwordRef.current.value);
             setOpen(false);
@@ -152,10 +147,8 @@ function Login() {
         } catch (e) {
             let msg = JSON.stringify(e.message);
             enqueueSnackbar(msg, { variant: "error" });
-            setError(`${e.message}`)
         }
         setOpen(false);
-        setLoading(false);
     }
 
     // Backdrop 
