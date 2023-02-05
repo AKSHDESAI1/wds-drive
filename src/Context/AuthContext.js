@@ -43,7 +43,7 @@ const AuthProvider = ({ children }) => {
     };
     return (
         <AuthContext.Provider value={value}>
-            {!loading ? children : <h1 className='d-flex justify-content-center'>   <CircularProgress />  <CircularProgress color="secondary" />  <CircularProgress color="success" />  <CircularProgress color="warning" />  <CircularProgress color="error" />  <CircularProgress color="info" /> Loading... </h1>}
+            {!loading ? children : <h1 className='d-flex justify-content-center'>   <CircularProgress />  <CircularProgress color="secondary" />  <CircularProgress color="success" />  <CircularProgress color="warning" />  <CircularProgress color="error" />  <CircularProgress color="info" /> </h1>}
         </AuthContext.Provider>
     )
 };

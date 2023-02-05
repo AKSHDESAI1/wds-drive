@@ -7,6 +7,7 @@ import { database } from '../../config/firebase-config';
 import { addDoc, serverTimestamp } from "firebase/firestore";
 import SnackbarMui from '../SnackbarMui';
 import { useAuth } from '../../Context/AuthContext';
+import { ROOT_FOLDER } from '../../hooks/useFolder';
 
 
 const Addfolderbutton = ({ currentFolder }) => {
@@ -45,16 +46,26 @@ const Addfolderbutton = ({ currentFolder }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setShow(false);
+
+    if (currentFolder === null) return
+
     let form = new FormData(e.currentTarget);
     let data = form.get('FolderName');
+
+    const path = [...currentFolder.path];
+
+    if (currentFolder !== ROOT_FOLDER) {
+      path.push({ name: currentFolder.name, id: currentFolder.id })
+    }
+
     try {
       await addDoc(database.folders, {
         name: data,
         userId: currentUser.uid,
         parentId: currentFolder.id,
+        path,
         createdAt: serverTimestamp()
       });
-      console.log('currentUser', currentUser);
       enqueueSnackbar('Folder Added Successfully', { variant: "success" });
     } catch (error) {
 

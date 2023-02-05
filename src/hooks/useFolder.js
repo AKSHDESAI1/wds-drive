@@ -2,6 +2,8 @@ import { useEffect, useReducer } from 'react';
 import { doc, getDoc, orderBy, query, where, onSnapshot } from "firebase/firestore";
 import db, { database } from '../config/firebase-config';
 import { useAuth } from '../Context/AuthContext';
+import { collection } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 
 
 const ACTIONS = {
@@ -10,7 +12,7 @@ const ACTIONS = {
     SET_CHILD_FOLDERS: 'set-child-folders'
 }
 
-const ROOT_FOLDER = {
+export const ROOT_FOLDER = {
     name: "Root",
     id: null,
     path: []
@@ -44,6 +46,7 @@ function reducer(state, action) {
 
 const useFolder = (folderId = null, folder = null) => {
     const { currentUser } = useAuth();
+    const navigate = useNavigate();
 
     const [state, dispatch] = useReducer(reducer, {
         folderId,
@@ -68,6 +71,11 @@ const useFolder = (folderId = null, folder = null) => {
 
         const docRef = doc(db, "folders", folderId);
         getDoc(docRef).then((data) => {
+            if (database.formattedDoc(data).name === undefined) {
+                navigate('/')
+                window.location.reload()
+            }
+            console.log('rudra', database.formattedDoc(data));
             dispatch({
                 type: ACTIONS.UPDATE_FOLDER,
                 payload: { folder: database.formattedDoc(data) }
@@ -82,9 +90,11 @@ const useFolder = (folderId = null, folder = null) => {
     }, [folderId]);
 
     useEffect(() => {
-        const q1 = query(database.folders, where("parentId", "==", folderId), where("userId", "==", currentUser.uid, orderBy('createdAt')));
-
+        let q1 = query(collection(db, "folders"), orderBy('createdAt'));
+        q1 = query(q1, where("parentId", "==", folderId));
+        q1 = query(q1, where("userId", "==", currentUser.uid));
         return onSnapshot(q1, (doc) => {
+            console.log('batako');
             dispatch({
                 type: ACTIONS.SET_CHILD_FOLDERS,
                 payload: { childFolders: doc.docs.map(database.formattedDoc) }

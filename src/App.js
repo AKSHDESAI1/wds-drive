@@ -13,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<PrivateRoute>  <Fdashboard /> </PrivateRoute>} />
+          <Route path="/folder/:folderId" element={<PrivateRoute>  <Fdashboard /> </PrivateRoute>} />
           <Route path="/user" element={<PrivateRoute>  <Dashboard name='aksh' /> </PrivateRoute>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
