@@ -86,7 +86,7 @@ const useFolder = (folderId = null, folder = null) => {
                 payload: { folder: ROOT_FOLDER }
             })
         });
-
+        // eslint-disable-next-line
     }, [folderId]);
 
     useEffect(() => {

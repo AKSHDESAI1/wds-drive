@@ -1,6 +1,6 @@
 import React from 'react'
 import Fnavbar from './Fnavbar'
-import { Container, Stack } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import Addfolderbutton from './Addfolderbutton'
 import useFolder from '../../hooks/useFolder'
 import Folder from './Folder'
