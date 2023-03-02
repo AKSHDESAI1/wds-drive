@@ -142,7 +142,7 @@ function Login() {
             enqueueSnackbar('Login Successfully', { variant: "success" });
             setTimeout(() => {
 
-                navigate('/');
+                navigate('/dashboard');
             }, 1000);
         } catch (e) {
             let msg = JSON.stringify(e.message);
