@@ -5,24 +5,33 @@ import PrivateRoute from "./Components/authentication/PrivateRoute";
 import Signup from "./Components/authentication/Signup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Error from './Components/pages/error'
+import "./App.css";
+import Home from "./Components/Home";
+
+
 
 function App() {
 
   return (
     < >
+      <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/" element={<PrivateRoute>  <Fdashboard /> </PrivateRoute>} />
           <Route path="/folder/:folderId" element={<PrivateRoute>  <Fdashboard /> </PrivateRoute>} />
           <Route path="/user" element={<PrivateRoute>  <Dashboard name='aksh' /> </PrivateRoute>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="*" element={<h1> Error: 404 Not Found </h1>} />
+          <Route path="*" element={<Error/>} /> 
         </Routes>
       </BrowserRouter>
+        </div>
 
     </>
   );
 }
 
 export default App;
+
