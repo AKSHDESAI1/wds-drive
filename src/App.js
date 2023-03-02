@@ -5,11 +5,13 @@ import PrivateRoute from "./Components/authentication/PrivateRoute";
 import Signup from "./Components/authentication/Signup";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import Error from './Components/pages/error'
 import "./App.css";
 import Home from "./Components/Home";
 
 import { useAuth } from './Context/AuthContext';
+
+import Error from './Components/pages/error'
+import "./App.css";
 
 
 function App() {

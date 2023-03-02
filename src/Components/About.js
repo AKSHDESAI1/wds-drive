@@ -3,7 +3,7 @@ import AboutBackground from "../Assets/about-background.png";
 import AboutBackgroundImage from "../Assets/about.png";
 import { BsFillPlayCircleFill } from "react-icons/bs";
 
-
+  
 const About = () => {
   return (
     <div className="about-section-container">
