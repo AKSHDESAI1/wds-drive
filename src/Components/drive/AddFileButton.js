@@ -6,7 +6,7 @@ import { storage, database } from '../../config/firebase-config';
 
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
-import { ROOT_FOLDER } from "../../hooks/useFolder"
+// import { ROOT_FOLDER } from "../../hooks/useFolder"
 import { v4 as uuidV4 } from "uuid"
 import { ProgressBar, Toast } from "react-bootstrap"
 
@@ -102,10 +102,10 @@ export default function AddFileButton({ currentFolder }) {
         ])
 
 
-        const filePath =
-            currentFolder === ROOT_FOLDER
-                ? `${currentFolder.path.join("/")}/${file.name}`
-                : `${currentFolder.path.join("/")}/${currentFolder.name}/${file.name}`
+        // const filePath =
+        //     currentFolder === ROOT_FOLDER
+        //         ? `${currentFolder.path.join("/")}/${file.name}`
+        //         : `${currentFolder.path.join("/")}/${currentFolder.name}/${file.name}`
 
         // const uploadTask = storage
         //     .ref(`/files/${currentUser.uid}/${filePath}`)

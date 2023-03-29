@@ -14,4 +14,4 @@ export default function File({ file }) {
       {file.name}
     </a>
   )
-}
+} 
