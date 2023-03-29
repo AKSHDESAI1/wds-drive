@@ -15,4 +15,4 @@ const Folder = ({ folder }) => {
   )
 }
 
-export default Folder
+export default Folder;

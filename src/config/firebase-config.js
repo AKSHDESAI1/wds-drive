@@ -3,6 +3,7 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { collection } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDzgUk9XHpjdvLJsbM8eJ4dSIueX8N79Tg",
@@ -16,6 +17,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+// Initialize Cloud Storage and get a reference to the service
+const storage = getStorage(app);
+
 const db = getFirestore(app);
 const auth = getAuth(app);
 
@@ -23,9 +27,9 @@ export const database = {
     folders: collection(db, "folders"),
     files: collection(db, "files"),
     formattedDoc: (doc) => {
-        return {...doc.data(), id: doc.id}
+        return { ...doc.data(), id: doc.id }
     }
 }
 
 export default db;
-export { auth };
+export { auth, storage };

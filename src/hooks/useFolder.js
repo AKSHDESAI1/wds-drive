@@ -7,9 +7,10 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ACTIONS = {
-    SELECT_FOLDER: 'select-folder',
-    UPDATE_FOLDER: 'update-folder',
-    SET_CHILD_FOLDERS: 'set-child-folders'
+    SELECT_FOLDER: "select-folder",
+    UPDATE_FOLDER: "update-folder",
+    SET_CHILD_FOLDERS: "set-child-folders",
+    SET_CHILD_FILES: "set-child-files",
 }
 
 export const ROOT_FOLDER = {
@@ -38,6 +39,11 @@ function reducer(state, action) {
             return {
                 ...state,
                 childFolders: action.payload.childFolders
+            }
+        case ACTIONS.SET_CHILD_FILES:
+            return {
+                ...state,
+                childFiles: action.payload.childFiles,
             }
         default:
             return state
@@ -94,13 +100,26 @@ const useFolder = (folderId = null, folder = null) => {
         q1 = query(q1, where("parentId", "==", folderId));
         q1 = query(q1, where("userId", "==", currentUser.uid));
         return onSnapshot(q1, (doc) => {
-            console.log('batako');
             dispatch({
                 type: ACTIONS.SET_CHILD_FOLDERS,
                 payload: { childFolders: doc.docs.map(database.formattedDoc) }
             })
         })
     }, [folderId, currentUser]);
+
+    useEffect(() => {
+        // return (
+        let q2 = query(collection(db, "files"), orderBy('createdAt'));
+        q2 = query(q2, where("folderId", "==", folderId));
+        q2 = query(q2, where("userId", "==", currentUser.uid));
+        return onSnapshot(q2, (doc) => {
+            dispatch({
+                type: ACTIONS.SET_CHILD_FILES,
+                payload: { childFiles: doc.docs.map(database.formattedDoc) }
+            })
+        })
+
+    }, [folderId, currentUser])
 
     return state
 }
