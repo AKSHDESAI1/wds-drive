@@ -12,7 +12,7 @@ import { useAuth } from './Context/AuthContext';
 
 import Error from './Components/pages/error'
 import "./App.css";
-import UpdateProfile from "./Components/authentication/updateProfile";
+// import UpdateProfile from "./Components/authentication/updateProfile";
 
 
 function App() {
