@@ -117,7 +117,10 @@ const Dashboard = () => {
       3. Now For Get All Files Names just Enter a command <b>List</b>
       <br /> <br />
 
-      4. And If you wan to downlaod particular file then Enter Command <b>download 'file_number'</b>
+      4. And If you want to downlaod particular file then Enter Command <b>download 'file_number'</b>
+      <br /> <br />
+
+      5. If you want to Stop this Procedure, then just Enter <b>stop</b> command. After that if you want to start again then follow this procedure from step-1.
       </h4>
     </>
   )
