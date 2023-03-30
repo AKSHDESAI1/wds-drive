@@ -78,8 +78,8 @@ const Addfolderbutton = ({ currentFolder }) => {
   return (
     <>
 
-      <MuiButton size='large' variant='outlined' color='success' sx={{ margin: "10px 10px" }}> Create Folder </MuiButton>
-      <Button size='lg' variant='outline-success' className='px-4'> Create Folder  </Button>
+      {/* <MuiButton size='large' variant='outlined' color='success' sx={{ margin: "10px 10px" }}> Create Folder </MuiButton> */}
+      {/* <Button size='lg' variant='outline-success' className='px-4'> Create Folder  </Button> */}
 
       {/* <MuiButton style={{ fontSize: "2rem" }} sx={{ margin: "10px 10px" }} color='success' variant='outlined' onClick={handleShow}>
         <i className="fa fa-folder" aria-hidden="true"></i>
@@ -89,7 +89,7 @@ const Addfolderbutton = ({ currentFolder }) => {
         <FaFolder className="fa fa-solid fa-folder mx-2" style={{ fontSize: "2rem" }} />
       </MuiButton>
 
-      <Button size='lg' variant='outline-success' className='px-4'> Create Folder  </Button>
+      {/* <Button size='lg' variant='outline-success' className='px-4'> Create Folder  </Button> */}
 
       {/* Modal  Start*/}
       <Modal

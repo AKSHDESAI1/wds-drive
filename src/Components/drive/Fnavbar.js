@@ -8,14 +8,14 @@ const Fnavbar = () => {
     <Container fluid>
       <Row>
         <Col md={8}>
-          <h1> wds drive </h1>
+          <h1> File Port  </h1>
         </Col>
 
         <Col>
           <Row md={{ span: 4 }} className='justify-content-end'>
             <Col md={4} className='text-center'>
 
-              <Link to='/user'>
+              <Link to='/user'>``
                 <MuiButton variant='contained'> Profile </MuiButton>
               </Link>
 
