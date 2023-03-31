@@ -11,7 +11,7 @@ import db from '../../config/firebase-config';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate() 
 
   const { currentUser, signout } = useAuth();
   const [show, setShow] = React.useState(true);
