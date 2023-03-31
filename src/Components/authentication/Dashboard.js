@@ -4,7 +4,7 @@ import { useAuth } from '../../Context/AuthContext';
 import { collection, addDoc } from "firebase/firestore";
 import { query, getDocs } from "firebase/firestore";
 
-
+// import "../../DashboardCSS.css";
 import Button from '@mui/material/Button';
 import SnackbarMui from '../SnackbarMui';
 import db from '../../config/firebase-config';
@@ -71,54 +71,61 @@ const Dashboard = () => {
   return (
     <>
 
-      <h3> DashBoard  </h3>
-      <p>
-        Name - {currentUser && currentUser.email}
-        {showPhone !== null ? `Phone - ${showPhone}` : ""}
-      </p>
-
-      {show === null ? `Loading` : ""}
-      {show === true ? <form onSubmit={handleSubmit}>
-        <h3 className='text-center'> Add Phone Number </h3>
-        <div className="mb-3">
-          <label htmlFor="number" className="form-label"> Mobile Number </label>
-          <input type="tel" name='phone' required className="form-control" id="number" />
-        </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form > : ""}
+      <div className="dashboard">
 
 
-      <br /> <br /> <br />
-      {/* <Link className='btn btn-primary w-100' to='update-profile'>Update Profile</Link> */}
-      <Link className="mx-2 btn btn-success" to='/'>Back</Link>
-      <button className="btn btn-primary" onClick={handleClick}>Logout</button>
+        <h3> DashBoard  </h3>
+        <p>
+          Name - {currentUser && currentUser.email} <br /> <br />
+          {showPhone !== null ? `Phone - ${showPhone}` : ""}
+        </p>
 
-      <Button onClick={() => {
-        enqueueSnackbar('20CE020 -Aksh', { variant: "info" })
-        enqueueSnackbar('20CE018 -Bhargavi', { variant: "warning" })
-        enqueueSnackbar('20CE016 -Krutik', { variant: "success" })
-        enqueueSnackbar('20CE015 -Ayush ', { variant: "warning" })
-        enqueueSnackbar('20CE001 - Bhargav', { variant: "info" })
-      }
-      } > See Admin People </Button>
-      {/* <Button onClick={handleClickVariant('success')}>Show success snackbar</Button> */}
+        {show === null ? `Loading` : ""}
+        {show === true ? <form onSubmit={handleSubmit}>
+          <h3 className='text-center'> Add Phone Number </h3>
+          <div className="mb-3">
+            <label htmlFor="number" className="form-label"> Mobile Number </label>
+            <input type="tel" name='phone' required className="form-control" id="number" />
+          </div>
+          <button type="submit" className="btn btn-primary">Submit</button>
+        </form > : ""}
 
-      <hr />
 
-      <h3> How to Use Whatsapp Bot Feature </h3>
+        <br /> <br /> <br />
+        {/* <Link className='btn btn-primary w-100' to='update-profile'>Update Profile</Link> */}
+        <Link className="mx-2 btn btn-success" to='/'>Back</Link>
+        <button className="btn btn-primary" onClick={handleClick}>Logout</button>
 
-      <h4>
-      1. Go to this Whatsapp Number:- <b>4155238886</b>
-      <br />  <br />
+        <Button onClick={() => {
+          enqueueSnackbar('20CE020 -Aksh', { variant: "info" })
+          enqueueSnackbar('20CE018 -Bhargavi', { variant: "warning" })
+          enqueueSnackbar('20CE016 -Krutik', { variant: "success" })
+          enqueueSnackbar('20CE015 -Ayush ', { variant: "warning" })
+          enqueueSnackbar('20CE001 - Bhargav', { variant: "info" })
+        }
+        } > See Admin People </Button>
+        {/* <Button onClick={handleClickVariant('success')}>Show success snackbar</Button> */}
 
-      2. Enter this Secret Code <b>join heat-slowly</b> to allow them that they can share Documents to you. 
-      <br /> <br />
+        <hr />
 
-      3. Now For Get All Files Names just Enter a command <b>List</b>
-      <br /> <br />
+        <h3> How to Use Whatsapp Bot Feature </h3>
 
-      4. And If you wan to downlaod particular file then Enter Command <b>download 'file_name'</b>
-      </h4>
+        <h4>
+          1. Go to this Whatsapp Number:- <b>4155238886</b>
+          <br />  <br />
+
+          2. Enter this Secret Code <b>join heat-slowly</b> to allow them that they can share Documents to you.
+          <br /> <br />
+
+          3. Now For Get All Files Names just Enter a command <b>List</b>
+          <br /> <br />
+
+          4. And If you want to downlaod particular file then Enter Command <b>download 'file_number'</b>
+          <br /> <br />
+
+          5. If you want to Stop this Procedure, then just Enter <b>stop</b> command. After that if you want to start again then follow this procedure from step-1.
+        </h4>
+      </div>
     </>
   )
 }

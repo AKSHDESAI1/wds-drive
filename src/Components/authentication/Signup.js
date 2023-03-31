@@ -81,7 +81,7 @@
 import { useState, useRef } from 'react'
 import { useAuth } from '../../Context/AuthContext';
 import { NavLink, useNavigate } from 'react-router-dom';
-
+import "./SignupCSS.css"
 
 const Signup = () => {
   const emailRef = useRef();
@@ -115,13 +115,17 @@ const Signup = () => {
   }
   return (
 
-    <div className="row d-flex justify-content-center vh-100 align-items-center">
-      <div className="col-md-6  mx-auto bg-dark text-light">
+    <div className="row justify-content-center vh-100 align-items-center box">
+      <div className='errordiv'>
         {currentUser && currentUser.email}
-        {error === '' ? null : <h6 className="alert alert-danger"> {error}  </h6>}
-
+        {error === '' ? null : <h6 className="alert errorbox"> 
+          {error === ("Firebase: Error (auth/network-request-failed).") ? ("Please make sure that you are connected to the internet !") : (error === ("Firebase: Error (auth/invalid-email).") ? ("Please enter valid email address !") : (error === ("Firebase: Error (auth/internal-error).") ?( "Please enter valid password !") : (error === ("Firebase: Error (auth/email-already-in-use).") ? ("This Email Id Already Use! Please Try With Another One.") : (error === "Firebase: Password should be at least 6 characters (auth/weak-password).") ? ("Password should be at least 6 characters") : (error))))}
+          
+        </h6>}
+      </div>
+      <div className="text-light signupbox">
         <form onSubmit={handleSubmit}>
-          <h1 className="text-center"> Sign Up </h1>
+          <h1 className="text-center headerf"> Sign Up </h1>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">Email address</label>
             <input type="email" className="form-control" id="email" ref={emailRef} aria-describedby="emailHelp" />
@@ -132,11 +136,11 @@ const Signup = () => {
             <input type="password" className="form-control" ref={passwordRef} id="password" />
           </div>
           <div className="mb-3">
-            <label htmlFor="confirm-password" className="form-label">Password Confirm</label>
+            <label htmlFor="confirm-password" className="form-label">Confirm Password</label>
             <input type="password" className="form-control" ref={passwordConfirmRef} id="confirm-password" />
           </div>
 
-          <button type="submit" disabled={loading} className="btn btn-primary"> {loading ? "Loading" : "Submit"} </button>
+          <button type="submit" disabled={loading} className="btn submitb"> {loading ? "Loading" : "Submit"} </button>
 
           <br />
           <NavLink to='/login' className="text-white">Already have an account? Login Here </NavLink>

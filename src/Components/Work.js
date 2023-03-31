@@ -1,9 +1,7 @@
 import React from "react";
-// import PickMeals from "../Assets/pick-meals-image.png";
-// import ChooseMeals from "../Assets/choose-image.png";
-// import DeliveryMeals from "../Assets/delivery-image.png";
 
 const Work = () => {
+  // eslint-disable-next-line
   const workInfoData = [
     {
       // image: PickMeals,
@@ -27,21 +25,21 @@ const Work = () => {
       <div className="work-section-top">
         <p className="primary-subheading">Work</p>
         <h1 className="primary-heading">How It Works</h1>
+
         <p className="primary-text">
-          Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et
-          elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.
-        </p>
-      </div>
-      <div className="work-section-bottom">
-        {workInfoData.map((data) => (
-          <div className="work-section-info" key={data.title}>
-            <div className="info-boxes-img-container">
-              <img src={data.image} alt="" />
-            </div>
-            <h2>{data.title}</h2>
-            <p>{data.text}</p>
-          </div>
-        ))}
+             1. Users can login through email account and then can create folder into 
+                the website according to their needs and can upload files into them
+            </p>
+        
+        <p className="primary-text">
+             2. users can view or download the files from the web-application
+           </p> 
+
+        <p className="primary-text">
+             3. Users can access their uploaded files from the WhatsApp bot (the number is mentioned in the
+                Help Section)
+           </p>
+        
       </div>
     </div>
   );

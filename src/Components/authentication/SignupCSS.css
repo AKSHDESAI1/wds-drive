@@ -1,0 +1,85 @@
+.box {
+  /* margin: 10px; */
+  /* align-items: center; */
+  justify-content: center;
+  display: flex;
+  /* background-color: #ecebe4; */
+  flex-direction: column;
+}
+
+.errordiv:empty {
+  padding: 10px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: auto;
+  background-color: #ecebe4;
+  border-radius: 15px;
+  box-shadow: 3px 3px 25px 15px #3df37c;
+  border-bottom: none;
+  color: #3df37c;
+  transition: all 0.7s ease;
+  margin-bottom: 8px;
+}
+
+.errordiv {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.errorbox {
+  padding: 14px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: auto;
+  /* background-color: #ecebe4; */
+  border-radius: 25px;
+  box-shadow: 5px 5px 8px #ebb5b5;
+  border-bottom: none;
+  color: #ff3333;
+  transition: all 0.7s ease;
+  width: fit-content;
+}
+
+.signupbox {
+  margin-top: 8px;
+  border-radius: 50px;
+  box-shadow: 5px 5px 7px #928d8d;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 40%;
+  background-color: #0c0b0b;
+  padding: 10px;
+  color: #ecebe4;
+}
+
+.headerf {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 50px;
+  font-weight: bolder;
+  cursor: default;
+  margin-bottom: 20px;
+}
+
+.submitb {
+  background-color: #1f51ff;
+  margin: auto;
+  justify-content: center;
+  display: flex;
+  color: rgb(247, 243, 236);
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 15px;
+}
+
+.submitb:hover {
+  background-color: #ffc300;
+  border-radius: 20px;
+}

@@ -1,0 +1,10 @@
+.dashboard{
+    height: 100vh;
+    background-color: #ecebe4;
+    padding: 20px;
+}
+
+h3{
+    font-weight: 900;
+    font-size: 3rem;
+}

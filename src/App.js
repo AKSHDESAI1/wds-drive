@@ -12,6 +12,7 @@ import { useAuth } from './Context/AuthContext';
 
 import Error from './Components/pages/error'
 import "./App.css";
+import About from "./Components/About";
 // import UpdateProfile from "./Components/authentication/updateProfile";
 
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/" element={currentUser ? <Navigate to='dashboard' /> : <Home />} />
             <Route path="/dashboard" element={<PrivateRoute>  <Fdashboard /> </PrivateRoute>} />
             <Route path="/folder/:folderId" element={<PrivateRoute>  <Fdashboard /> </PrivateRoute>} />
+            <Route path="/about" element={<About />} />
             <Route path="/user" element={<PrivateRoute>  <Dashboard name='aksh' /> </PrivateRoute>} />
             {/* <Route path="/user/update-profile" element={<PrivateRoute>  <UpdateProfile name='aksh' /> </PrivateRoute>} /> */}
             <Route path="/signup" element={<Signup />} />

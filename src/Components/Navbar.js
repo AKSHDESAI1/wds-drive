@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
+// import { useRef } from "react";
 // import Logo from "../Assets/Logo.svg";
 // import { BsCart2 } from "react-icons/bs";
 import { HiOutlineBars3 } from "react-icons/hi2";
@@ -14,11 +15,11 @@ import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 // import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
-import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
+// import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 // import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 
 import { Link } from "react-router-dom";
-
+// import About from "./About";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -31,10 +32,10 @@ const Navbar = () => {
       text: "About",
       icon: <InfoIcon />,
     },
-    {
-      text: "Contact",
-      icon: <PhoneRoundedIcon />,
-    },
+    // {
+    //   text: "Contact",
+    //   icon: <PhoneRoundedIcon />,
+    // },
     {
       text: "SignIn",
       // icon: <CommentRoundedIcon />,
@@ -43,35 +44,33 @@ const Navbar = () => {
       text: "SignUp",
       // icon: <ShoppingCartRoundedIcon />,
     },
-   
-    
   ];
   return (
     <nav>
       <div className="nav-logo-container">
         <h1>FILEPORT</h1>
-        {/* <img src={Logo} alt="" /> */}
       </div>
       <div className="navbar-links-container">
-        <Link to="/login">
-        <a href="">Home</a>
+        <Link to="/">
+          <a href="">Home</a>
         </Link>
-        <Link to="/login">
-        <a href="">About</a>
+
+        {/* <a href="" onClick={()=>scrollToSection(about)}>About</a> */}
+
+        <Link to="/about">
+          <a href="#about">About</a>
         </Link>
+     
+
         <Link to="/login">
-        <a href="">Contact</a>
+          <a href="">SignIn</a>
+        </Link>
+        <Link to="/SignUp">
+          <a href="">SignUp</a>
         </Link>
 
         <Link to="/login">
-        <a href="">SignIn</a>
-        </Link>
-        <Link to="/SignUp">
-        <a href="">SignUp</a>
-        </Link>
-       
-        <Link to="/login">
-        <button className="primary-button">Upload Now</button>
+          <button className="primary-button">Upload Now</button>
         </Link>
       </div>
       <div className="navbar-menu-container">
