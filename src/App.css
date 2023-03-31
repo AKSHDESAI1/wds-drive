@@ -468,7 +468,7 @@ nav {
 .work-section-top h1 {
   max-width: 700px !important;
 }
-.work-section-top {
+.work-section-top { 
   display: flex;
   justify-content: center;
   align-items: center;
