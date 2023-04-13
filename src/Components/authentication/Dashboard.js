@@ -114,7 +114,8 @@ const Dashboard = () => {
           1. Go to this Whatsapp Number:- <b>4155238886</b>
           <br />  <br />
 
-          2. Enter this Secret Code <b>join heat-slowly</b> to allow them that they can share Documents to you.
+          2. Enter this Secret Code <b>join heat-slowly</b> to allow them that they can share Documents to you or <a href="https://wa.me/+14155238886?text=join heat-slowly"> Click Me
+        </a>
           <br /> <br />
 
           3. Now For Get All Files Names just Enter a command <b>List</b>
